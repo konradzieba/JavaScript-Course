@@ -8,6 +8,7 @@ let popupInfo
 let todoToEdit
 let popupAddBtn
 let popupCloseBtn
+let removeTodoBtn
 
 const main = () => {
     prepareDOMElements()
@@ -22,22 +23,26 @@ const prepareDOMElements = () => {
 
     popup = document.querySelector('.popup')
     popupInfo = document.querySelector('.popup-info')
-    popupInput = document.querySelector('popup-input')
+    popupInput = document.querySelector('.popup-input')
     popupAddBtn = document.querySelector('.accept')
     popupCloseBtn = document.querySelector('.cancel')
-}
 
+    removeTodoBtn = document.querySelector('.delete')
+}
 const prepareDOMEvents = () => {
     addBtn.addEventListener('click', addNewTodo)
+    todoInput.addEventListener('keyup', addOnKey)
     ulList.addEventListener('click', checkClick)
     popupCloseBtn.addEventListener('click', closePopup)
+    popupAddBtn.addEventListener('click', changeTodoText)
+    removeTodoBtn.addEventListener('click', deleteTodo)
+
 }
 
 const addNewTodo = () => {
     if (todoInput.value !== ''){
         newTodo = document.createElement('li')
         newTodo.textContent = todoInput.value
-
 
         createTools()
         ulList.append(newTodo)
@@ -74,19 +79,49 @@ const checkClick = (e) => {
       e.target.classList.toggle('completed')
     }
     else if (e.target.matches('.edit')) {
-        editTodo()
+        editTodo(e)
     }
     else if (e.target.matches('.delete')) {
-        console.log('delete');
+        deleteTodo(e)
     }
 }
 
-const editTodo = () => {
+const editTodo = (e) => {
+    todoToEdit = e.target.closest('li')
+    popupInput.value = todoToEdit.firstChild.textContent
     popup.style.display = 'flex'
 }
 
 const closePopup = () => {
     popup.style.display = 'none'
+    popupInfo.textContent = ''
+}
+
+const changeTodoText = () => {
+    if (popupInput.value !== '') {
+        todoToEdit.firstChild.textContent = popupInput.value
+        popup.style.display = 'none'
+        popupInfo.textContent = ''
+    } else {
+        popupInfo.textContent = 'Wymagana jest jakaś treść!'
+    }
+}
+
+const deleteTodo = (e) => {
+    e.target.closest('li').remove()
+
+    const allTodos = ulList.querySelectorAll('li')
+
+    if(allTodos.length === 0) {
+        errorInfo.textContent = 'Brak zadań na liście.'
+        console.log('ok');
+    }
+}
+
+const addOnKey = (e) => {
+    if (e.key === 'Enter') {
+        addNewTodo()
+    }
 }
 
 document.addEventListener('DOMContentLoaded', main)
