@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../Downloads/Zadanie 2"
+		},
+		{
+			"path": "../../../../../Downloads/Chowanie obrazka"
+		},
+		{
+			"path": "../../../../../Downloads/Powiększ, pomniejsz i zmień kolor"
+		},
+		{
+			"path": "../../../../../Downloads/Konwerter"
+		},
+		{
+			"path": "../../../../../Downloads/Burger menu"
+		},
+		{
+			"path": "../../../../../Downloads/ToDo Lista"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Kurs JS"
+	}
+}
