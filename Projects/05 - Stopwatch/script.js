@@ -40,21 +40,32 @@ const handleStop = () => {
 
     if (stopwatch.textContent !== '0:00') {
         time.style.visibility = 'visible';
-        timesArr.push(stopwatch.textContent)
-        console.log(timesArr);
+        timesArr.push(stopwatch.textContent);
     }
 
-	clearInterval(countTime);
-    stopwatch.textContent = '0:00';
-    timeList.textContent = '';
-    seconds = 0;
-    minutes = 0;
+    clearStuff();
 }
 
 const handlePause = () => {
 	clearInterval(countTime);
 }
 
+const handleReset = () => {
+
+    time.style.visibility = 'hidden';
+    timesArr = [];
+    clearStuff();
+}
+
+const clearStuff = () => {
+    clearInterval(countTime);
+    stopwatch.textContent = '0:00';
+    timeList.textContent = '';
+    seconds = 0;
+    minutes = 0;
+}
+
 startBtn.addEventListener('click', handleStart);
 pauseBtn.addEventListener('click', handlePause);
 stopBtn.addEventListener('click', handleStop);
+resetBtn.addEventListener('click', handleReset)
