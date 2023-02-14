@@ -12,6 +12,10 @@ const cancelBtn = document.querySelector('.cancel');
 const deleteBtn = document.querySelector('.delete');
 const deleteAllBtn = document.querySelector('.delete-all');
 
+const lightThemeBtn = document.querySelector('.light');
+const darkThemeBtn = document.querySelector('.dark');
+
+
 let root = document.documentElement;
 let ID = 0;
 let categoryIcon;
@@ -111,6 +115,29 @@ const deleteTransaction = (id) => {
 	countMoney();
 };
 
+const deleteAllTransactions = () => {
+    incomeSection.innerHTML = '<h3>Income:</h3>';
+    expenseSection.innerHTML = '<h3>Expenses:</h3>';
+    availableMoney.textContent = '0.00'
+    moneyArr = [0];
+}
+
+const changeThemeToLight = () => {
+    root.style.setProperty('--first-color', '#f9f9f9');
+    root.style.setProperty('--second-color', '#14161f');
+    root.style.setProperty('--border-color', 'rgba(0,0,0,.2)');
+}
+const changeThemeToDark = () => {
+    root.style.setProperty('--first-color', '#14161f');
+    root.style.setProperty('--second-color', '#f9f9f9');
+    root.style.setProperty('--border-color', 'rgba(255,255,255,.4)');
+}
+
 addTransactionBtn.addEventListener('click', showPanel);
 cancelBtn.addEventListener('click', closePanel);
 saveBtn.addEventListener('click', checkForm);
+deleteAllBtn.addEventListener('click', deleteAllTransactions);
+lightThemeBtn.addEventListener('click', changeThemeToLight);
+darkThemeBtn.addEventListener('click', changeThemeToDark);
+
+
