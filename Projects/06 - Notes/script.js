@@ -48,7 +48,8 @@ const createNote = () => {
         <div class="note-body">
         ${textarea.value}
         </div>
-`;
+`
+;
 
 	noteArea.append(newNote);
 	cardId++;
