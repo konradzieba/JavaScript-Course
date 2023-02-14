@@ -30,7 +30,7 @@ const checkInput = () => {
 
 const generateAnswer = () => {
     const number = Math.floor(Math.random() * answersArr.length);
-    answer.innerHTML = `<span>Odpowiedź:</span> ${answersArr[number]}`
+    answer.innerHTML = `<span>Answer:</span> ${answersArr[number]}`
 }
 
 
