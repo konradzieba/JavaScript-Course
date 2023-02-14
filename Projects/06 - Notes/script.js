@@ -8,6 +8,7 @@ const deleteAllBtn = document.querySelector('.delete-all');
 const category = document.querySelector('#category');
 const textarea = document.querySelector('#text');
 const error = document.querySelector('.error');
+
 let selectedValue;
 let cardId = 0;
 
@@ -23,9 +24,7 @@ const closePanel = () => {
 };
 
 const addNote = () => {
-	if (
-		textarea.value !== '' &&
-		category.options[category.selectedIndex].value !== '0'
+	if (textarea.value !== '' && category.options[category.selectedIndex].value !== '0'
 	) {
 		createNote();
 		error.style.visibility = 'hidden';
@@ -78,11 +77,15 @@ const checkColor = (note) => {
 };
 
 const deleteNote = (id) => {
-    const noteToDelete = document.getElementById(id)
-    noteArea.removeChild(noteToDelete)
-}
+	const noteToDelete = document.getElementById(id);
+	noteArea.removeChild(noteToDelete);
+};
 
+const deleteAllNotes = () => {
+	noteArea.textContent = '';
+};
 
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel);
 saveBtn.addEventListener('click', addNote);
+deleteAllBtn.addEventListener('click', deleteAllNotes);
