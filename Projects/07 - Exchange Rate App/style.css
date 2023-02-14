@@ -15,7 +15,7 @@ body {
 
 .wrapper {
     padding: 50px;
-    width: 800px;
+    width: 1000px;
     background-image: linear-gradient(#3F4B59, #333D46);
     color: #fff;
     text-align: center;
@@ -81,7 +81,7 @@ body {
 .swap {
     align-self: flex-end;
     margin: 5px;
-    padding: 5px 50px;
+    padding: 15px 50px;
     background-image: linear-gradient(45deg, #2b89e7, #11e763);
     border: none;
     border-radius: 25px;
