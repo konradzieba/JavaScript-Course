@@ -15,25 +15,46 @@ let countTime;
 let minutes = 0;
 let seconds = 0;
 
+let timesArr = [];
+
 const handleStart = () => {
-    clearInterval(countTime);
+	clearInterval(countTime);
 	countTime = setInterval(() => {
-        if(seconds<9) {
-            seconds++;
-            stopwatch.textContent = `${minutes}:0${seconds}`; 
-        } else if(seconds>=9 && seconds < 59) {
-            seconds++;
-            stopwatch.textContent = `${minutes}:${seconds}`;  
-        } else {
-            minutes++;
-            seconds = 0;
-            stopwatch.textContent = `${minutes}:00`;  
-        }
+		if (seconds < 9) {
+			seconds++;
+			stopwatch.textContent = `${minutes}:0${seconds}`;
+		} else if (seconds >= 9 && seconds < 59) {
+			seconds++;
+			stopwatch.textContent = `${minutes}:${seconds}`;
+		} else {
+			minutes++;
+			seconds = 0;
+			stopwatch.textContent = `${minutes}:00`;
+		}
 	}, 1000);
-};
+}
+
+const handleStop = () => {
+
+    time.innerHTML = `Last time: ${stopwatch.textContent}`
+
+    if (stopwatch.textContent !== '0:00') {
+        time.style.visibility = 'visible';
+        timesArr.push(stopwatch.textContent)
+        console.log(timesArr);
+    }
+
+	clearInterval(countTime);
+    stopwatch.textContent = '0:00';
+    timeList.textContent = '';
+    seconds = 0;
+    minutes = 0;
+}
 
 const handlePause = () => {
-    clearInterval(countTime)
+	clearInterval(countTime);
 }
+
 startBtn.addEventListener('click', handleStart);
-pauseBtn.addEventListener('click', handlePause)
+pauseBtn.addEventListener('click', handlePause);
+stopBtn.addEventListener('click', handleStop);
