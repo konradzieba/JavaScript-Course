@@ -16,7 +16,7 @@ let minutes = 0;
 let seconds = 0;
 
 const handleStart = () => {
-
+    clearInterval(countTime);
 	countTime = setInterval(() => {
         if(seconds<9) {
             seconds++;
