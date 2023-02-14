@@ -32,4 +32,8 @@ const handleStart = () => {
 	}, 1000);
 };
 
+const handlePause = () => {
+    clearInterval(countTime)
+}
 startBtn.addEventListener('click', handleStart);
+pauseBtn.addEventListener('click', handlePause)
