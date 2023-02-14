@@ -21,49 +21,37 @@
         <div class="menu-buttons">
             <button class="add icon"><i class="fas fa-plus"></i> Add</button>
             <button class="delete-all icon"><i class="fas fa-trash-alt"></i> Delete all</button>
-            
+
         </div>
     </div>
 
     <div class="note-area">
 
-        <div class="note">
-            <div class="note-header">
-                <h3 class="note-title"></h3>
-                <button class="delete-note">
-                    <i class="fas fa-times icon"></i>
-                </button>
-            </div>
-            <div class="note-body">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam provident distinctio assumenda
-                praesentium
-                fugit nemo, recusandae accusantium ipsum odio modi illo, commodi incidunt natus exercitationem?
-            </div>
+    </div>
+
+    <div class="note-panel">
+        <h2>Add a note</h2>
+        <label for="category">Select category:</label>
+        <select id="category" onchange="selectValue()">
+            <option value="0" disabled selected></option>
+            <option value="1">Shopping</option>
+            <option value="1">Work</option>
+            <option value="1">Others</option>
+        </select>
+
+        <label for="text">Type the content of the note:</label>
+        <textarea id="text"></textarea>
+
+        <p class="error">Fill all fields.</p>
+
+        <div class="panel-buttons">
+            <button class="save icon"><i class="fas fa-save"></i> Save</button>
+            <button class="cancel icon"><i class="far fa-window-close"></i> Cancel</button>
         </div>
-
-            <div class="note-panel">
-                <h2>Add a note</h2>
-                <label for="category">Select category</label>
-                <select id="category">
-                    <option value="0" disabled selected></option>
-                    <option value="1">Shopping</option>
-                    <option value="1">Work</option>
-                    <option value="1">Others</option>
-                </select>
-
-                <label for="text">Type the content of the note</label>
-                <textarea id="text"></textarea>
-
-                <p class="error">Fill all fields.</p>
-
-                <div class="panel-buttons">
-                    <button class="save icon"><i class="fas fa-save"></i> Save</button>
-                    <button class="cancel icon"><i class="far fa-window-close"></i> Cancel</button>
-                </div>
-            </div>
+    </div>
 
 
-            <script src="./script.js"></script>
+    <script src="./script.js"></script>
 
 
 </body>
